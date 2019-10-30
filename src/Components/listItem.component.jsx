@@ -18,6 +18,14 @@ const BoxStyle = styled(Box)`
   margin: 8px 56px;
   border-radius: 4px;
 `;
+
+const CheckBox = styled(Form.Check)`
+  display: flex;
+  position: absolute;
+  right: 32px;
+  bottom: 8px;
+  border-color: blueviolet;
+`;
 function ListItem(props) {
   const items = props.items;
   const listItem = items.map(item => {
@@ -25,6 +33,7 @@ function ListItem(props) {
       <BoxStyle key={item.key}>
         <TextStyle>
           {item.text}
+          <CheckBox />
           <IconButton
             icon="Delete"
             onClick={() => props.deleteItem(item.key)}
