@@ -24,7 +24,6 @@ const CheckBox = styled(Form.Check)`
   position: absolute;
   right: 32px;
   bottom: 8px;
-  border-color: blueviolet;
 `;
 function ListItem(props) {
   const items = props.items;

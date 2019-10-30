@@ -3,16 +3,6 @@ import styled from "styled-components";
 import { Button, Form, Box, Heading, Input } from "rimble-ui";
 import ListItem from "./listItem.component";
 
-const Container = styled(Box)`
-  text-align: center;
-  background-color: #2d3748;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-`;
 const Header = styled(Heading.h2)`
   margin: 1rem;
 `;
@@ -26,14 +16,6 @@ const AddButton = styled(Button)`
   border-radius: 8px;
   font-size: 16px;
   background-color: pink;
-`;
-
-const Border = styled(Box)`
-  background-color: #488abb;
-  min-height: 540px;
-  width: 480px;
-  border-radius: 8px;
-  margin: auto;
 `;
 
 function AddItem() {
@@ -65,20 +47,17 @@ function AddItem() {
     setItems(filteredItems);
   };
   return (
-    <Container>
-      <Border>
-        <Header>Todo List</Header>
-        <AddList onSubmit={addItem}>
-          <Form.Input
-            placeholder="Add item here"
-            value={currentItem.text}
-            onChange={handleInput}
-          />
-          <AddButton type="submit">Add Item</AddButton>
-        </AddList>
-        <ListItem items={items} deleteItem={deleteItem} />
-      </Border>
-    </Container>
+    <>
+      <Header>Todo List</Header>
+      <AddList onSubmit={addItem}>
+        <Form.Input
+          placeholder="Add item here"
+          value={currentItem.text}
+          onChange={handleInput}
+        />
+        <AddButton type="submit">Add Item</AddButton>
+      </AddList>
+    </>
   );
 }
 
