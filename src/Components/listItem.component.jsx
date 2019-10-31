@@ -27,12 +27,13 @@ const CheckBox = styled(Form.Check)`
 `;
 function ListItem(props) {
   const items = props.items;
+  const checkbox = props.checkbox;
   const listItem = items.map(item => {
     return (
       <BoxStyle key={item.key}>
         <TextStyle>
           {item.text}
-          <CheckBox />
+          <CheckBox checked={checkbox} />
           <IconButton
             icon="Delete"
             onClick={() => props.deleteItem(item.key)}
