@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Button, Form, Box, Heading, Input, Text } from "rimble-ui";
+import { Button, Form, Box, Text } from "rimble-ui";
 
 const TextStyle = styled(Text)`
   color: white;
@@ -27,14 +27,13 @@ const CheckBox = styled(Form.Check)`
 `;
 function ListItem(props) {
   const items = props.items;
-  const checkbox = props.checkbox;
   const onChange = props.onChange;
   const listItem = items.map(item => {
     return (
       <BoxStyle key={item.key}>
         <TextStyle>
           {item.text}
-          <CheckBox checked={checkbox} onChange={onChange} />
+          <CheckBox checked={item.itemCheck} onChange={onChange} />
           <IconButton
             icon="Delete"
             onClick={() => props.deleteItem(item.key)}
