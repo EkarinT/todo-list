@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Button, Form, Box, Heading, Input } from "rimble-ui";
 import ListItem from "./listItem.component";
@@ -54,6 +54,7 @@ function AddItem() {
   const handleCheck = e => {
     setItemCheck(e.target.checked);
   };
+
   const addItem = props => {
     props.preventDefault();
     const newItem = currentItem;
@@ -73,6 +74,8 @@ function AddItem() {
     const filteredItems = items.filter(item => item.key !== key);
     setItems(filteredItems);
   };
+  console.log(items);
+
   return (
     <Container>
       <Border>
@@ -83,13 +86,14 @@ function AddItem() {
             value={currentItem.text}
             onChange={handleInput}
           />
-          <Form.Check checked={itemChecked} onChange={handleCheck} />
+          <Form.Check checked={itemChecked} onChange={handleCheck} value />
           <AddButton type="submit">Add Item</AddButton>
         </AddList>
         <ListItem
           items={items}
-          checkbox={handleCheck}
+          checkbox={itemChecked}
           deleteItem={deleteItem}
+          onChange={handleCheck}
         />
       </Border>
     </Container>
