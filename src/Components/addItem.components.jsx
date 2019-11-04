@@ -48,7 +48,7 @@ function AddItem() {
 
   const handleInput = props => {
     setText({
-      text: props.target.value,
+      text: props.target.value.trimStart(),
       key: Date.now()
     });
   };
